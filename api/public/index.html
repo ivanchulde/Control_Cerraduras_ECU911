@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registro Usuarios RFID</title>
+</head>
+
+<body>
+
+<h2>Registrar Usuario</h2>
+
+<form id="form">
+
+Cedula<br>
+<input type="text" id="cedula"><br>
+
+Nombres<br>
+<input type="text" id="nombres"><br>
+
+Apellidos<br>
+<input type="text" id="apellidos"><br>
+
+Cargo<br>
+<input type="text" id="cargo"><br>
+
+Tarjeta RFID<br>
+<input type="number" id="tarjeta"><br>
+
+Area ID<br>
+<input type="number" id="area"><br><br>
+
+<button type="submit">Guardar</button>
+
+</form>
+
+<script>
+
+document.getElementById("form").addEventListener("submit", async (e)=>{
+
+e.preventDefault();
+
+const data = {
+
+cedula: document.getElementById("cedula").value,
+nombres: document.getElementById("nombres").value,
+apellidos: document.getElementById("apellidos").value,
+cargo: document.getElementById("cargo").value,
+tarjeta: document.getElementById("tarjeta").value,
+area: document.getElementById("area").value
+
+}
+
+await fetch("/usuarios",{
+method:"POST",
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify(data)
+});
+
+alert("Usuario guardado");
+
+});
+
+</script>
+
+</body>
+</html>
