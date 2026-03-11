@@ -7,7 +7,7 @@ WIEGAND wg;
 const char* ssid = "Bio";
 const char* password = "P*Biometrico_2025";
 
-String servidor = "http://192.168.101.16:3000/validar-tarjeta";
+String servidor = "http://192.168.0.100:3000/validar-tarjeta";
 
 int puertaID = 1;
 

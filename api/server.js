@@ -18,13 +18,13 @@ const pool = new Pool({
 
 app.post("/usuarios", async (req, res) => {
 
-  const { cedula, nombres, apellidos, cargo, tarjeta, area } = req.body;
+  const { cedula, nombres, apellidos, cargo, tarjeta, rol } = req.body;
 
   try {
 
     await pool.query(
-      "INSERT INTO usuarios(cedula,nombres,apellidos,cargo,tarjeta,area_id) VALUES($1,$2,$3,$4,$5,$6)",
-      [cedula, nombres, apellidos, cargo, tarjeta, area]
+      "INSERT INTO usuarios(cedula,nombres,apellidos,cargo,tarjeta,rol_id) VALUES($1,$2,$3,$4,$5,$6)",
+      [cedula, nombres, apellidos, cargo, tarjeta, rol]
     );
 
     res.send("Usuario creado");
@@ -56,8 +56,8 @@ app.post("/validar-tarjeta", async (req, res) => {
       const usuario = resultado.rows[0];
 
       const permiso = await pool.query(
-        "SELECT * FROM permisos_area_puerta WHERE area_id = $1 AND puerta_id = $2",
-        [usuario.area_id, puerta]
+        "SELECT * FROM permisos_rol_puerta WHERE rol_id = $1 AND puerta_id = $2",
+        [usuario.rol_id, puerta]
       );
 
       if(permiso.rows.length > 0){

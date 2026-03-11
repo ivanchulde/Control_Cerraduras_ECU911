@@ -17,16 +17,16 @@ cedula,
 nombres,
 apellidos,
 cargo,
-tarjeta_rfid,
+tarjeta,
 area_id,
-activo
+estado
 ) VALUES (
 '1600454878',
 'Luis Ivan',
 'Chulde Bonilla',
 'Director Zonal de Tecnologia y Soporte',
 12583029,
-2,
+1,
 true
 );
 
@@ -48,27 +48,14 @@ INSERT INTO permisos_area_puerta (area_id, puerta_id) VALUES
 (5,4),
 (5,5);
 
-INSERT INTO usuarios (
-cedula,
-nombres,
-apellidos,
-cargo,
-tarjeta,
-area_id,
-estado
-) VALUES (
-'1600454878',
-'Luis Ivan',
-'Chulde Bonilla',
-'Director Zonal de Tecnologia y Soporte',
-12583029,
-1,
-true
-);
 
---SELECT * FROM areas;
---SELECT * FROM puertas;
---SELECT * FROM permisos_area_puerta;
---SELECT * FROM usuarios;
---SELECT * FROM accesos;
+
+SELECT * FROM areas;
+SELECT * FROM puertas;
+SELECT * FROM permisos_area_puerta;
+SELECT * FROM usuarios;
+SELECT * FROM accesos;
+
+
+
 

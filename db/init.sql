@@ -1,4 +1,4 @@
-CREATE TABLE areas (
+CREATE TABLE rol (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL
 );
@@ -16,13 +16,13 @@ CREATE TABLE usuarios (
     apellidos VARCHAR(100),
     cargo VARCHAR(100),
     tarjeta BIGINT UNIQUE,
-    area_id INT REFERENCES areas(id),
+    rol_id INT REFERENCES rol(id),
     estado BOOLEAN DEFAULT TRUE
 );
 
-CREATE TABLE permisos_area_puerta (
+CREATE TABLE permisos_rol_puerta (
     id SERIAL PRIMARY KEY,
-    area_id INT REFERENCES areas(id),
+    rol_id INT REFERENCES rol(id),
     puerta_id INT REFERENCES puertas(id)
 );
 
